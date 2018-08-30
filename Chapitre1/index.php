@@ -7,16 +7,19 @@
  * Description : Création d'un site d'échange d'information basique
  * Copyright: Entreprise Ecole CFPT-I © 2016
  */
+include_once 'Affichage.php';
 session_start();
-$idDefine = "bob";
-$passwordDefine = "1234";
 if (isset($_POST['submit'])) {
-    $id = $_POST['identifiant'];
-    $password = $_POST['identifiant'];
-    if($id == $idDefine && $password = $passwordDefine) {
-        $_SESSION['id'] = $id;
-        $_SESSION['Password'] = $password;
-        header('Location: confimration.php');
+    $id = $_POST['id'];
+    $password = $_POST['password'];
+    if($id == $_SESSION['id'] && $password = $_SESSION['password']) {
+        $_SESSION['idConnect'] = $id;
+        $_SESSION['passwordConnect'] = $password;
+        header('Location: http://127.0.0.1/EE_Revision/Chapitre1/confirmation.php/');
+        exit;
+    }else{
+        echo "L'identifiant ou le mot de passe est incorrect !";
+        var_dump($_SESSION);
     }
 }
 ?>
@@ -28,40 +31,7 @@ if (isset($_POST['submit'])) {
         <title>Chapitre 1</title>
     </head>
     <body>
-        <fieldset>
-            <legend>Connection</legend>
-            <form method="post" action="">
-                <table>
-                    <tbody>
-                        <tr>
-                            <td>
-                                Identifiant:
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input name='identifiant' type='text' value=''/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Mot de passe:
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input name='motDePasse' type='text' value=''/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input name='submit' type='submit' value='Valider'/>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </form>
-        </fieldset>
-        <a href='#'>Pas encore inscrit?</a>
+        <?php showFormConnect(); ?>
+        <a href='inscription.php'>Pas encore inscrit?</a>
     </body>
 </html>

@@ -17,6 +17,6 @@ session_start();
         <title>Chapitre 1</title>
     </head>
     <body>
-        <h1>vous etes connecte</h1>
+        <h1>Bonjour <?php echo $_SESSION['id']; ?> vous êtes connecté !</h1>
     </body>
 </html>
