@@ -1,5 +1,4 @@
 <?php
-
 function showFormRegister() {
     ?>
     <fieldset>
@@ -17,7 +16,7 @@ function showFormRegister() {
                     <tr><td><input name='password' type='password' value=''/></td></tr>
                     <tr><td>Validation du mot de passe:</td></tr>
                     <tr><td><input name='passwordValidation' type='password' value=''/></td></tr>
-                    <tr><td><input name='submit' type='submit' value='Valider'/></td></tr>
+                    <tr><td><input name='submitRegister' type='submit' value='Valider'/></td></tr>
                 </tbody>
             </table>
         </form>
@@ -36,7 +35,7 @@ function showFormConnect() {
                     <tr><td><input name='id' type='text' value=''/></td></tr>
                     <tr><td>Mot de passe:</td></tr>
                     <tr><td><input name='password' type='password' value=''/></td></tr>
-                    <tr><td><input name='submit' type='submit' value='Valider'/></td></tr>
+                    <tr><td><input name='submitConnect' type='submit' value='Valider'/></td></tr>
                 </tbody>
             </table>
         </form>

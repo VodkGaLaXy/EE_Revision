@@ -8,28 +8,13 @@
  * Copyright: Entreprise Ecole CFPT-I © 2016
  */
 include_once 'Affichage.php';
+include_once 'FunctionConnect.php';
 session_start();
-
-if (isset($_POST['submit'])) {
-    $inputs = array();
-    $inputsNames = array();
-    $inputs[0] = $_POST['firstName'];
-    $inputs[1] = $_POST['name'];
-    $inputs[2] = $_POST['id'];
-    $inputs[3] = $_POST['password'];
-    $inputs[4] = $_POST['passwordValidation'];
-
-    if (isset($firstName) && isset($name) && isset($id) && isset($password) && isset($passwordValidation)) {
-        $_SESSION[$inputsNames[0]] = $inputs[0];
-        /*for ($i = 0; $i < 5; $i++) {
-            $_SESSION[$inputsNames[$i]] = $inputs[$i];
-        }*/
-    } else {
-        echo "nope";
-        var_dump($_SESSION);
-        var_dump($inputs);
-        echo $_SESSION[$inputsNames[0]];
-    }
+if (isset($_POST['submitRegister'])) {
+    register();
+}
+if(isset($_SESSION)){
+    echo "Vous avez été enregistré !";
 }
 ?>
 <!DOCTYPE html>
@@ -40,7 +25,7 @@ if (isset($_POST['submit'])) {
         <title>Chapitre 1</title>
     </head>
     <body>
-<?php showFormRegister(); ?>
+        <?php showFormRegister(); ?>
         <a href='index.php'>retour accueil</a>
     </body>
 </html>

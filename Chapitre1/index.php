@@ -8,19 +8,10 @@
  * Copyright: Entreprise Ecole CFPT-I © 2016
  */
 include_once 'Affichage.php';
+include_once 'FunctionConnect.php';
 session_start();
-if (isset($_POST['submit'])) {
-    $id = $_POST['id'];
-    $password = $_POST['password'];
-    if($id == $_SESSION['id'] && $password = $_SESSION['password']) {
-        $_SESSION['idConnect'] = $id;
-        $_SESSION['passwordConnect'] = $password;
-        header('Location: http://127.0.0.1/EE_Revision/Chapitre1/confirmation.php/');
-        exit;
-    }else{
-        echo "L'identifiant ou le mot de passe est incorrect !";
-        var_dump($_SESSION);
-    }
+if (isset($_POST['submitConnect'])) {
+    connect();
 }
 ?>
 <!DOCTYPE html>
@@ -33,5 +24,7 @@ if (isset($_POST['submit'])) {
     <body>
         <?php showFormConnect(); ?>
         <a href='inscription.php'>Pas encore inscrit?</a>
+        </br>
+        <a href='SessionDestroy.php'>Supprimer les données de session</a>
     </body>
 </html>

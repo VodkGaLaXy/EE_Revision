@@ -17,6 +17,7 @@ session_start();
         <title>Chapitre 1</title>
     </head>
     <body>
-        <h1>Bonjour <?php echo $_SESSION['id']; ?> vous êtes connecté !</h1>
+        <h1>Bonjour <?php echo $_SESSION['firstName'].' '.$_SESSION['name']; ?> vous êtes connecté !</h1>
+        <a href="http://127.0.0.1/EE_Revision/Chapitre1/index.php">Retour à l'accueil</a>
     </body>
 </html>
